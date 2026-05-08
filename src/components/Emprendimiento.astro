@@ -1,0 +1,121 @@
+---
+import { Image } from "astro:assets";
+
+const {
+    title,
+    image,
+    logo,
+    description,
+    category,
+    name,
+    position,
+    whatsapp,
+    facebook,
+    instagram,
+    website,
+    linkText,
+} = Astro.props;
+---
+
+<article class="emprendimiento">
+    <div class="emprendimiento-imagen">
+        <Image
+            class=""
+            style="object-position: top;"
+            src={image}
+            alt="pijamas dass"
+        />
+    </div>
+    <div class="emprendimiento-contenido">
+        <div class="emprendimiento-texto">
+            <span class="tag">{category}</span>
+            <h4 class="emprendimiento-titulo">{title}</h4>
+            <p class="emprendimiento-descripcion">
+                {description}
+            </p>
+        </div>
+        <footer>
+            <div class="emprendimiento-autor">
+                <Image
+                    class="emprendimiento-autor-avatar"
+                    src={logo}
+                    alt={title}
+                />
+                <div>
+                    <p class="emprendimiento-autor-nombre">{name}</p>
+                    <p class="emprendimiento-autor-departamento">
+                        {position}
+                    </p>
+                </div>
+            </div>
+            <div class="emprendimiento-enlaces">
+                {
+                    whatsapp && (
+                        <a
+                            target="_blank"
+                            rel="noopenner noreferer"
+                            href={whatsapp}
+                        >
+                            <>
+                                <i class="fa-brands fa-whatsapp" />
+                                <span style="font-size: 12px;">
+                                    {linkText ?? ""}
+                                </span>
+                            </>
+                        </a>
+                    )
+                }
+                {
+                    facebook && (
+                        <a
+                            target="_blank"
+                            rel="noopenner noreferer"
+                            href={facebook}
+                        >
+                            <>
+                                <i class="fa-brands fa-facebook" />
+                                <span style="font-size: 12px;">
+                                    {linkText ?? ""}
+                                </span>
+                            </>
+                        </a>
+                    )
+                }
+                {
+                    website && (
+                        <a
+                            target="_blank"
+                            rel="noopenner noreferer"
+                            href={website}
+                        >
+                            <>
+                                <i class="fa-solid fa-globe" />
+                                <span style="font-size: 12px;">
+                                    {linkText ?? ""}
+                                </span>
+                            </>
+                        </a>
+                    )
+                }
+                {
+                    instagram && (
+                        <a
+                            target="_blank"
+                            rel="noopenner noreferer"
+                            href={instagram}
+                        >
+                            <>
+                                <i class="fa-brands fa-instagram" />
+                                <span style="font-size: 12px;">
+                                    {linkText ?? ""}
+                                </span>
+                            </>
+                        </a>
+                    )
+                }
+            </div>
+        </footer>
+    </div>
+</article>
+
+<style></style>
