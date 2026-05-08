@@ -1,0 +1,51 @@
+---
+import Emprendimiento from "../components/Emprendimiento.astro";
+import Hero from "../components/Hero.astro";
+import Layout from "../layouts/Layout.astro";
+import mobyDuck from "../assets/asopatitos/Moby-Duck.jpg";
+import mobyDuckLogo from "../assets/asopatitos/moby-duck-logo.jpg";
+
+const emprendimiento = {
+    title: "Asopatitos",
+    image: mobyDuck,
+    logo: mobyDuckLogo,
+    description:
+        "PATOS DE GOMA Y DUCKY BIKES, PATITOS PARA LA TINA, PATITOS PARA LA MOTO, PATITOS PARA LA VIDA",
+    category: "🐤 Patos",
+    name: "JUAN PIÑA",
+    position: "Depto. TI",
+    whatsapp: "",
+    facebook: "",
+    instagram: "",
+    website: "https://www.grupoalza.com/los-patitos",
+    linkText: "Ver página",
+};
+---
+
+<Layout>
+    <Hero />
+    <main id="emprendimientos" class="emprendimientos">
+        <h3 style="text-align: center;" class="emprendimientos-titulo">
+            PATITOEMPRENDIMIENTOS
+        </h3>
+        <ul class="emprendimientos-lista">
+            <li>
+                <Emprendimiento
+                    title={emprendimiento.title}
+                    description={emprendimiento.description}
+                    category={emprendimiento.category}
+                    image={emprendimiento.image}
+                    logo={emprendimiento.logo}
+                    name={emprendimiento.name}
+                    position={emprendimiento.position}
+                    whatsapp={emprendimiento.whatsapp}
+                    facebook={emprendimiento.facebook}
+                    website={emprendimiento.website}
+                    instagram={emprendimiento.instagram}
+                    linkText={emprendimiento.linkText}
+                />
+            </li>
+        </ul>
+    </main>
+    <footer class="footer">© Corporación ACS 2026 – Derechos Reservados</footer>
+</Layout>
