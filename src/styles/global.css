@@ -1,0 +1,347 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #1a3e6c;
+    background: linear-gradient(180deg,
+            rgba(26, 62, 108, 1) 0%,
+            rgba(255, 255, 255, 1) 100%);
+    background-repeat: no-repeat;
+    height: 100svh;
+    font-family: "Inter", sans-serif;
+}
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100svh;
+    max-height: 860px;
+    gap: 32px;
+    background-image: url(../assets/ACS.png);
+    background-position: -550px top;
+    background-repeat: no-repeat;
+}
+
+.hero-texto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.hero-button {
+    background-color: #fdc044;
+    border: none;
+    font-weight: bold;
+    font-family: "Inter", sans-serif;
+    padding: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition:
+        filter 0.3s ease-out,
+        transform 0.3s ease-out;
+}
+
+.hero-button:hover {
+    filter: brightness(1.1);
+    transform: translateY(-4px);
+}
+
+h1 {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-size: 54px;
+    color: white;
+    text-align: center;
+}
+
+h2,
+h3,
+h4 {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: bold;
+}
+
+.titulo-destacado {
+    color: #fdc044;
+}
+
+p {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    color: white;
+    max-width: 800px;
+    text-align: center;
+}
+
+.intro {
+    font-size: 18px;
+    opacity: 0.9;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    color: #000;
+    text-decoration: none;
+}
+
+.tag {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    color: #fdc044;
+    font-size: 12px;
+}
+
+.scroll {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 14px;
+    font-weight: bold;
+    gap: 4px;
+    color: #eee;
+    opacity: 0.8;
+}
+
+.mouse {
+    border: 2px solid #eee;
+    border-radius: 20px;
+    width: 32px;
+    height: 50px;
+    position: relative;
+}
+
+.mouse-wheel {
+    position: absolute;
+    width: 4px;
+    border-radius: 2px;
+    height: 10px;
+    background-color: #eee;
+    left: 50%;
+    top: 6px;
+    transform: translate(-50%, 0%);
+    animation: mouse-animation 2s infinite;
+}
+
+@keyframes mouse-animation {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, 0%);
+    }
+
+    20% {
+        opacity: 1;
+        transform: translate(-50%, 0%);
+    }
+
+    80% {
+        opacity: 1;
+        transform: translate(-50%, 80%);
+    }
+
+    100% {
+        transform: translate(-50%, 80%);
+        opacity: 0;
+    }
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1272px;
+    margin-inline: auto;
+    padding: 0 16px;
+}
+
+.emprendimientos-titulo {
+    font-size: 18px;
+    font-weight: 600;
+    text-align: left;
+    width: 100%;
+    padding-left: 2px;
+    margin-bottom: 8px;
+    color: #666;
+}
+
+.emprendimiento {
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    max-height: 420px;
+    background-color: white;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.emprendimiento:hover .emprendimiento-imagen img {
+    transform: scale(1.05);
+}
+
+.emprendimientos-lista {
+    display: inline-grid;
+    grid-template-columns: repeat(1, auto);
+    gap: 16px;
+}
+
+.emprendimiento-imagen {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.emprendimiento-imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+    transform-origin: center center;
+}
+
+.emprendimiento-contenido {
+    width: 100%;
+    height: 100%;
+    padding: 16px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    justify-content: space-between;
+}
+
+.emprendimiento-texto {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    height: 100%;
+}
+
+.emprendimiento-autor {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.emprendimiento-autor-avatar {
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+    object-fit: cover;
+    outline: 2px solid white;
+}
+
+.emprendimiento-autor-departamento {
+    color: #777;
+    font-size: 11px;
+    font-weight: 500;
+    text-align: left;
+}
+
+.emprendimiento-titulo {
+    font-size: 22px;
+}
+
+.emprendimiento-descripcion {
+    color: #555;
+    max-width: 600px;
+    max-height: 85px;
+    margin-bottom: 4px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-align: left;
+    font-size: 14px;
+}
+
+.emprendimiento-autor-nombre {
+    font-family: "Montserrat", sans-serif;
+    color: #555;
+    text-align: left;
+    font-weight: 700;
+    font-size: 12px;
+}
+
+.emprendimiento footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.emprendimiento-enlaces {
+    display: flex;
+    gap: 1px;
+    font-size: 16px;
+}
+
+.emprendimiento-enlaces a {
+    padding: 3px;
+    color: #555;
+    transition:
+        color 0.2s ease-out,
+        transform 0.2s ease-out;
+    display: flex;
+    gap: 2px;
+    align-items: center;
+}
+
+.emprendimiento-enlaces a:hover {
+    color: #fdc044;
+}
+
+.emprendimiento-enlaces .fa-globe {
+    font-size: 15px;
+}
+
+@media screen and (min-width: 660px) {
+    h1 {
+        font-size: 68px;
+    }
+
+    .emprendimientos-lista {
+        grid-template-columns: repeat(2, auto);
+    }
+
+    .hero {
+        background-position: -500px top;
+    }
+}
+
+@media screen and (min-width: 1100px) {
+    .emprendimientos-lista {
+        gap: 32px;
+    }
+
+    .emprendimiento {
+        flex-direction: row;
+        max-height: 260px;
+    }
+
+    .emprendimiento-imagen {
+        max-width: 290px;
+    }
+
+    .hero {
+        background-position: center top;
+    }
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 64px;
+    padding: 32px 16px;
+}
