@@ -26,7 +26,7 @@ body {
     height: 100svh;
     max-height: 860px;
     gap: 32px;
-    background-image: url(../assets/ACS.png);
+    background-image: url(/src/assets/ACS.webp);
     background-position: -550px top;
     background-repeat: no-repeat;
 }
@@ -188,6 +188,7 @@ main {
     max-height: 420px;
     background-color: white;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
 }
 
 .emprendimiento:hover .emprendimiento-imagen img {
