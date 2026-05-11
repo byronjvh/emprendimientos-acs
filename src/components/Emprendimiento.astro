@@ -250,13 +250,14 @@ const modalId = crypto.randomUUID();
     const card = document.querySelector(`[data-modal="${modalId}"]`);
     const modal = document.getElementById(modalId);
     const closeBtn = modal?.querySelector("[data-close]");
+    let scrollY = 0;
 
     card?.addEventListener("click", () => {
         openModal();
     });
 
     closeBtn?.addEventListener("click", () => {
-        closeModal();
+        modal?.close();
     });
 
     window.addEventListener("popstate", () => {
@@ -276,7 +277,7 @@ const modalId = crypto.randomUUID();
             e.clientY <= rect.bottom;
 
         if (!inside) {
-            closeModal();
+            modal?.close();
         }
     });
 
@@ -284,6 +285,7 @@ const modalId = crypto.randomUUID();
     const galleries = document.querySelectorAll(".modal-gallery");
 
     function openModal() {
+        scrollY = window.scrollY;
         const scrollbarWidth =
             window.innerWidth - document.documentElement.clientWidth;
 
@@ -297,12 +299,6 @@ const modalId = crypto.randomUUID();
         modal?.showModal();
     }
 
-    function closeModal() {
-        modal?.close();
-        document.body.style.removeProperty("overflow");
-        document.body.style.removeProperty("padding-right");
-        history.back();
-    }
     // Recorre cada galería
     galleries.forEach((gallery) => {
         // Obtiene imágenes y botones
@@ -377,6 +373,8 @@ const modalId = crypto.randomUUID();
         modal?.addEventListener("close", () => {
             document.body.style.removeProperty("overflow");
             document.body.style.removeProperty("padding-right");
+            history.back();
+            window.scrollTo(0, scrollY);
         });
 
         // Inicializa estado correcto
