@@ -14,10 +14,13 @@ const {
     instagram,
     website,
     linkText,
+    gallery,
 } = Astro.props;
+
+const modalId = crypto.randomUUID();
 ---
 
-<article class="emprendimiento">
+<article class="emprendimiento" data-modal={modalId}>
     <div class="emprendimiento-imagen">
         <Image
             class=""
@@ -54,6 +57,7 @@ const {
                         <a
                             target="_blank"
                             rel="noopenner noreferer"
+                            onclick="event.stopPropagation()"
                             href={whatsapp}
                         >
                             <>
@@ -71,6 +75,7 @@ const {
                             target="_blank"
                             rel="noopenner noreferer"
                             href={facebook}
+                            onclick="event.stopPropagation()"
                         >
                             <>
                                 <i class="fa-brands fa-facebook" />
@@ -87,6 +92,7 @@ const {
                             target="_blank"
                             rel="noopenner noreferer"
                             href={website}
+                            onclick="event.stopPropagation()"
                         >
                             <>
                                 <i class="fa-solid fa-globe" />
@@ -103,6 +109,7 @@ const {
                             target="_blank"
                             rel="noopenner noreferer"
                             href={instagram}
+                            onclick="event.stopPropagation()"
                         >
                             <>
                                 <i class="fa-brands fa-instagram" />
@@ -118,4 +125,260 @@ const {
     </div>
 </article>
 
-<style></style>
+<dialog id={modalId} class="modal">
+    <div class="modal-content">
+        <div class="modal-gallery">
+            <div></div>
+            {
+                gallery?.map((src, i) => (
+                    <img
+                        class={`modal-image ${i === 0 ? "active" : ""}`}
+                        src={src}
+                        alt={title}
+                    />
+                ))
+            }
+
+            <button class="gallery-button prev">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button class="gallery-button next">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+        </div>
+        <div class="modal-text">
+            <button data-close class="modal-close"
+                ><i class="fa-solid fa-xmark"></i></button
+            >
+            <div
+                class="emprendimiento-autor"
+                style="margin-bottom: 8px; margin-top: 8px;"
+            >
+                <Image
+                    class="emprendimiento-autor-avatar"
+                    src={logo}
+                    alt={title}
+                />
+                <div>
+                    <p class="emprendimiento-autor-nombre">{name}</p>
+                    <p class="emprendimiento-autor-departamento">{position}</p>
+                </div>
+            </div>
+            <h4 class="emprendimiento-titulo">{title}</h4>
+            <p class="emprendimiento-descripcion">{description}</p>
+        </div>
+    </div>
+</dialog>
+
+<script define:vars={{ modalId }}>
+    const card = document.querySelector(`[data-modal="${modalId}"]`);
+    const modal = document.getElementById(modalId);
+    const closeBtn = modal?.querySelector("[data-close]");
+
+    card?.addEventListener("click", () => {
+        modal?.showModal();
+    });
+
+    closeBtn?.addEventListener("click", () => {
+        modal?.close();
+    });
+
+    modal?.addEventListener("click", (e) => {
+        const rect = modal.getBoundingClientRect();
+
+        const inside =
+            e.clientX >= rect.left &&
+            e.clientX <= rect.right &&
+            e.clientY >= rect.top &&
+            e.clientY <= rect.bottom;
+
+        if (!inside) {
+            modal.close();
+        }
+    });
+
+    // Selecciona todas las galerías
+    const galleries = document.querySelectorAll(".modal-gallery");
+
+    // Recorre cada galería
+    galleries.forEach((gallery) => {
+        // Obtiene imágenes y botones
+        const images = gallery.querySelectorAll(".modal-image");
+
+        const prevBtn = gallery.querySelector(".prev");
+        const nextBtn = gallery.querySelector(".next");
+
+        // Índice de imagen actual
+        let current = 0;
+
+        // Función para actualizar galería
+        function updateGallery() {
+            // Oculta todas las imágenes
+            images.forEach((img) => {
+                img.classList.remove("active");
+            });
+
+            // Muestra la imagen actual
+            images[current].classList.add("active");
+
+            // Deshabilita botón "atrás" si está en la primera imagen
+            prevBtn.disabled = current === 0;
+
+            // Deshabilita botón "siguiente" si está en la última imagen
+            nextBtn.disabled = current === images.length - 1;
+        }
+
+        // Botón siguiente
+        nextBtn?.addEventListener("click", () => {
+            // Evita avanzar más allá del límite
+            if (current < images.length - 1) {
+                current++;
+                updateGallery();
+            }
+        });
+
+        // Botón anterior
+        prevBtn?.addEventListener("click", () => {
+            // Evita retroceder antes de la primera
+            if (current > 0) {
+                current--;
+                updateGallery();
+            }
+        });
+
+        // Inicializa estado correcto
+        updateGallery();
+    });
+</script>
+
+<style>
+    .modal {
+        width: 100%;
+        max-width: 800px;
+        height: 100%;
+        max-height: 420px;
+        margin: auto;
+        border: none;
+        background: transparent;
+        padding: 8px;
+    }
+
+    .modal:focus {
+        outline: none;
+    }
+
+    .modal-content {
+        border-radius: 10px;
+        overflow: hidden;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        position: relative;
+        animation: modalIn 0.4s ease;
+    }
+
+    .modal::backdrop {
+        background: rgba(0, 0, 0, 0.65);
+        backdrop-filter: blur(5px);
+    }
+
+    .modal-close {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 22px;
+        width: 22px;
+        font-size: 14px;
+        border-radius: 50%;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        transition: background-color 0.2s ease-out;
+    }
+
+    .modal-close:hover {
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    .modal-gallery {
+        width: 100%;
+        overflow: hidden;
+        background-color: rgba(0, 0, 0, 0.3);
+        position: relative;
+    }
+
+    .gallery-button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        border: none;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        padding: 6px 2px;
+        border-radius: 4px;
+        overflow: hidden;
+        opacity: 0;
+        transition:
+            opacity 0.2s ease-out,
+            background-color 0.2s ease-out;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        user-select: none;
+    }
+
+    .modal-gallery:hover .gallery-button {
+        opacity: 1;
+    }
+
+    .modal-gallery:hover .gallery-button:disabled {
+        opacity: 0.4;
+    }
+
+    .gallery-button:hover {
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .gallery-button.prev {
+        left: 4px;
+    }
+
+    .gallery-button.next {
+        right: 4px;
+    }
+
+    .modal-image {
+        object-fit: contain;
+        width: 100%;
+        height: 100%;
+        display: none;
+    }
+
+    .modal-image.active {
+        display: block;
+    }
+
+    .modal-text {
+        width: 100%;
+        max-width: 320px;
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        background-color: white;
+    }
+
+    @keyframes modalIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+</style>

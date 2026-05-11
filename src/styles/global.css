@@ -80,9 +80,8 @@ h4 {
 p {
     font-family: "Inter", sans-serif;
     font-optical-sizing: auto;
-    color: white;
+    color: #555;
     max-width: 800px;
-    text-align: center;
 }
 
 .intro {
@@ -258,7 +257,6 @@ main {
 }
 
 .emprendimiento-descripcion {
-    color: #555;
     max-width: 600px;
     max-height: 85px;
     margin-bottom: 4px;
@@ -266,6 +264,7 @@ main {
     overflow: hidden;
     text-align: left;
     font-size: 14px;
+    white-space: pre-line;
 }
 
 .emprendimiento-autor-nombre {
