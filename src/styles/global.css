@@ -209,7 +209,7 @@ main {
 
 .emprendimiento-imagen {
     width: 100%;
-    height: 415px;
+    height: 100%;
     overflow: hidden;
     flex-shrink: 0;
 }
