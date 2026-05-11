@@ -20,7 +20,7 @@ export const emprendimientos = [
         "website": "",
         "linkText": "8363-6171",
         "gallery": [
-            "/src/assets/pijamas-dass/PIJAMAS_DASS.png"
+            "/gallery/pijamas-dass/1.png"
         ]
     },
     {
@@ -37,12 +37,12 @@ export const emprendimientos = [
         "website": "",
         "linkText": "Ver página",
         "gallery": [
-            "/src/assets/delicias-mi-tita/gallery/1.webp",
-            "/src/assets/delicias-mi-tita/gallery/2.webp",
-            "/src/assets/delicias-mi-tita/gallery/3.webp",
-            "/src/assets/delicias-mi-tita/gallery/4.webp",
-            "/src/assets/delicias-mi-tita/gallery/5.webp",
-            "/src/assets/delicias-mi-tita/gallery/6.webp",
+            "/gallery/delicias-mi-tita/1.webp",
+            "/gallery/delicias-mi-tita/2.webp",
+            "/gallery/delicias-mi-tita/3.webp",
+            "/gallery/delicias-mi-tita/4.webp",
+            "/gallery/delicias-mi-tita/5.webp",
+            "/gallery/delicias-mi-tita/6.webp",
         ]
     },
     {
@@ -59,16 +59,16 @@ export const emprendimientos = [
         "website": "",
         "linkText": "",
         "gallery": [
-            "/src/assets/blossom-delicat/gallery/1.webp",
-            "/src/assets/blossom-delicat/gallery/2.webp",
-            "/src/assets/blossom-delicat/gallery/3.webp",
-            "/src/assets/blossom-delicat/gallery/4.webp",
-            "/src/assets/blossom-delicat/gallery/5.webp",
-            "/src/assets/blossom-delicat/gallery/6.webp",
-            "/src/assets/blossom-delicat/gallery/7.webp",
-            "/src/assets/blossom-delicat/gallery/8.webp",
-            "/src/assets/blossom-delicat/gallery/9.webp",
-            "/src/assets/blossom-delicat/gallery/10.webp",
+            "/gallery/blossom-delicat/1.webp",
+            "/gallery/blossom-delicat/2.webp",
+            "/gallery/blossom-delicat/3.webp",
+            "/gallery/blossom-delicat/4.webp",
+            "/gallery/blossom-delicat/5.webp",
+            "/gallery/blossom-delicat/6.webp",
+            "/gallery/blossom-delicat/7.webp",
+            "/gallery/blossom-delicat/8.webp",
+            "/gallery/blossom-delicat/9.webp",
+            "/gallery/blossom-delicat/10.webp",
         ]
     }
 ]

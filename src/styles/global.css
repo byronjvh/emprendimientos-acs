@@ -38,6 +38,12 @@ body {
     gap: 12px;
 }
 
+.hero-intro,
+.scroll-text {
+    text-align: center;
+    color: #eee;
+}
+
 .hero-button {
     background-color: #fdc044;
     border: none;
