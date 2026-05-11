@@ -18,7 +18,10 @@ export const emprendimientos = [
         "facebook": "",
         "instagram": "",
         "website": "",
-        "linkText": "8363-6171"
+        "linkText": "8363-6171",
+        "gallery": [
+            "/src/assets/pijamas-dass/PIJAMAS_DASS.png"
+        ]
     },
     {
         "title": "Delicias Mi Tita",
@@ -32,13 +35,21 @@ export const emprendimientos = [
         "facebook": "https://www.facebook.com/share/1B7AdZzrSy/",
         "instagram": "",
         "website": "",
-        "linkText": "Ver página"
+        "linkText": "Ver página",
+        "gallery": [
+            "/src/assets/delicias-mi-tita/gallery/1.webp",
+            "/src/assets/delicias-mi-tita/gallery/2.webp",
+            "/src/assets/delicias-mi-tita/gallery/3.webp",
+            "/src/assets/delicias-mi-tita/gallery/4.webp",
+            "/src/assets/delicias-mi-tita/gallery/5.webp",
+            "/src/assets/delicias-mi-tita/gallery/6.webp",
+        ]
     },
     {
         "title": "Blossom Delicat",
         "image": blossomDelicat,
         "logo": blossomDelicatLogo,
-        "description": "En Blossom Delicat no solo vendemos, también te asesoramos para que encuentres lo ideal según tu estilo y necesidades.",
+        "description": "✨ Bienvenidos a Blossom Delicat ✨\nEn Blossom Delicat no solo vendemos, también te asesoramos para que encuentres lo ideal según tu estilo y necesidades 💖",
         "category": "💅 Belleza",
         "name": "Abigail Valverde",
         "position": "Comercial",
@@ -46,6 +57,18 @@ export const emprendimientos = [
         "facebook": "https://www.facebook.com/share/1Cs3gRC3cH/",
         "instagram": "https://www.instagram.com/blossom_delicat",
         "website": "",
-        "linkText": ""
+        "linkText": "",
+        "gallery": [
+            "/src/assets/blossom-delicat/gallery/1.webp",
+            "/src/assets/blossom-delicat/gallery/2.webp",
+            "/src/assets/blossom-delicat/gallery/3.webp",
+            "/src/assets/blossom-delicat/gallery/4.webp",
+            "/src/assets/blossom-delicat/gallery/5.webp",
+            "/src/assets/blossom-delicat/gallery/6.webp",
+            "/src/assets/blossom-delicat/gallery/7.webp",
+            "/src/assets/blossom-delicat/gallery/8.webp",
+            "/src/assets/blossom-delicat/gallery/9.webp",
+            "/src/assets/blossom-delicat/gallery/10.webp",
+        ]
     }
 ]
