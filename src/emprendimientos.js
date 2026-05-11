@@ -9,6 +9,29 @@ import trendingStoreLogo from "./assets/trending-store/trending-store-logo.webp"
 
 export const emprendimientos = [
     {
+        "title": "Delicias Mi Tita",
+        "image": deliciasTita,
+        "logo": deliciasTitaLogo,
+        "description": "Delicias Mi Tita ofrece productos artesanales elaborados con sabor tradicional y dedicación, incluyendo miel, café, mermeladas, aceites saborizados, pan casero y repostería.",
+        "aditional": `<p>Entre sus productos destacan mermeladas de piña, chiverre y guayaba, así como aceites para cocinar con ajo, jengibre y chile panameño. También elaboran pan casero y repostería variada, como cápsulas mixtas, manteniendo un enfoque casero y auténtico en cada preparación.</p>`,
+        "category": "🍰 Gastronomía",
+        "name": "Nicole Carrazco",
+        "position": "Asesora Call Center",
+        "whatsapp": "",
+        "facebook": "https://www.facebook.com/share/1B7AdZzrSy/",
+        "instagram": "",
+        "website": "",
+        "linkText": "Ver página",
+        "gallery": [
+            "/gallery/delicias-mi-tita/1.webp",
+            "/gallery/delicias-mi-tita/2.webp",
+            "/gallery/delicias-mi-tita/3.webp",
+            "/gallery/delicias-mi-tita/4.webp",
+            "/gallery/delicias-mi-tita/5.webp",
+            "/gallery/delicias-mi-tita/6.webp",
+        ]
+    },
+    {
         "title": "Pijamas Dass",
         "image": pijamasDass,
         "logo": pijamasDassLogo,
@@ -37,29 +60,6 @@ export const emprendimientos = [
         "linkText": "8363-6171",
         "gallery": [
             "/gallery/pijamas-dass/1.png"
-        ]
-    },
-    {
-        "title": "Delicias Mi Tita",
-        "image": deliciasTita,
-        "logo": deliciasTitaLogo,
-        "description": "Delicias Mi Tita ofrece productos artesanales elaborados con sabor tradicional y dedicación, incluyendo miel, café, mermeladas, aceites saborizados, pan casero y repostería.",
-        "aditional": `<p>Entre sus productos destacan mermeladas de piña, chiverre y guayaba, así como aceites para cocinar con ajo, jengibre y chile panameño. También elaboran pan casero y repostería variada, como cápsulas mixtas, manteniendo un enfoque casero y auténtico en cada preparación.</p>`,
-        "category": "🍰 Gastronomía",
-        "name": "Nicole Carrazco",
-        "position": "Asesora Call Center",
-        "whatsapp": "",
-        "facebook": "https://www.facebook.com/share/1B7AdZzrSy/",
-        "instagram": "",
-        "website": "",
-        "linkText": "Ver página",
-        "gallery": [
-            "/gallery/delicias-mi-tita/1.webp",
-            "/gallery/delicias-mi-tita/2.webp",
-            "/gallery/delicias-mi-tita/3.webp",
-            "/gallery/delicias-mi-tita/4.webp",
-            "/gallery/delicias-mi-tita/5.webp",
-            "/gallery/delicias-mi-tita/6.webp",
         ]
     },
     {
