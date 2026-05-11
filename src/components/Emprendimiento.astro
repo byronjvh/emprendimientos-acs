@@ -164,12 +164,14 @@ const modalId = crypto.randomUUID();
                     <p class="emprendimiento-autor-departamento">{position}</p>
                 </div>
             </div>
-            <span class="tag">{category}</span>
-            <h4 class="modal-titulo">{title}</h4>
-            <p class="modal-descripcion">{description}</p>
-            <slot />
+            <div class="modal-description-container">
+                <span class="tag">{category}</span>
+                <h4 class="modal-titulo">{title}</h4>
+                <p class="modal-descripcion">{description}</p>
+                <slot />
+            </div>
             <footer>
-                <div class="emprendimiento-enlaces">
+                <div class="emprendimiento-enlaces" style="height: 22px;">
                     {
                         whatsapp && (
                             <a
@@ -421,7 +423,8 @@ const modalId = crypto.randomUUID();
 
     .modal-gallery {
         width: 100%;
-        max-height: 300px;
+        height: 300px;
+        min-height: 300px;
         overflow: hidden;
         background-color: rgba(0, 0, 0, 0.3);
         position: relative;
@@ -483,12 +486,22 @@ const modalId = crypto.randomUUID();
     .modal-text {
         width: 100%;
         height: 100%;
+        min-height: 0;
         padding: 16px;
         font-size: 13px;
         display: flex;
         flex-direction: column;
         gap: 6px;
         background-color: white;
+    }
+
+    .modal-description-container {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        flex: 1;
+        min-height: 0;
+        overflow-y: auto;
     }
 
     .modal-titulo {
@@ -526,6 +539,8 @@ const modalId = crypto.randomUUID();
 
         .modal-gallery {
             max-height: unset;
+            min-height: unset;
+            height: auto;
         }
     }
 </style>
