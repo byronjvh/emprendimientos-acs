@@ -262,7 +262,7 @@ const modalId = crypto.randomUUID();
     window.addEventListener("popstate", () => {
         // Si la modal está abierta, cerrarla
         if (modal?.open) {
-            closeModal();
+            closeModal(true);
         }
     });
 
@@ -297,10 +297,13 @@ const modalId = crypto.randomUUID();
         modal?.showModal();
     }
 
-    function closeModal() {
+    function closeModal(fromPopState = false) {
         modal?.close();
         document.body.style.overflow = "";
         document.body.style.paddingRight = "";
+        if (!fromPopState && history.state?.modal) {
+            history.back();
+        }
     }
     // Recorre cada galería
     galleries.forEach((gallery) => {
