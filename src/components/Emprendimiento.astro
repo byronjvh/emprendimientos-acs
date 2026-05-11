@@ -130,7 +130,7 @@ const modalId = crypto.randomUUID();
         <div class="modal-gallery">
             <div></div>
             {
-                gallery?.map((src, i) => (
+                gallery?.map((src: string, i: number) => (
                     <img
                         class={`modal-image ${i === 0 ? "active" : ""}`}
                         src={src}
@@ -164,8 +164,10 @@ const modalId = crypto.randomUUID();
                     <p class="emprendimiento-autor-departamento">{position}</p>
                 </div>
             </div>
-            <h4 class="emprendimiento-titulo">{title}</h4>
-            <p class="emprendimiento-descripcion">{description}</p>
+            <span class="tag">{category}</span>
+            <h4 class="modal-titulo">{title}</h4>
+            <p class="modal-descripcion">{description}</p>
+            <slot />
         </div>
     </div>
 </dialog>
@@ -176,12 +178,26 @@ const modalId = crypto.randomUUID();
     const closeBtn = modal?.querySelector("[data-close]");
 
     card?.addEventListener("click", () => {
-        modal?.showModal();
+        openModal();
     });
 
     closeBtn?.addEventListener("click", () => {
         modal?.close();
+        document.body.style.overflow = "";
+        document.body.style.paddingRight = "";
     });
+
+    function openModal() {
+        const scrollbarWidth =
+            window.innerWidth - document.documentElement.clientWidth;
+
+        document.body.style.overflow = "hidden";
+
+        // Compensa el espacio del scrollbar
+        document.body.style.paddingRight = `${scrollbarWidth}px`;
+
+        modal?.showModal();
+    }
 
     modal?.addEventListener("click", (e) => {
         const rect = modal.getBoundingClientRect();
@@ -194,6 +210,8 @@ const modalId = crypto.randomUUID();
 
         if (!inside) {
             modal.close();
+            document.body.style.overflow = "";
+            document.body.style.paddingRight = "";
         }
     });
 
@@ -254,9 +272,9 @@ const modalId = crypto.randomUUID();
 <style>
     .modal {
         width: 100%;
-        max-width: 800px;
+        max-width: 900px;
         height: 100%;
-        max-height: 420px;
+        max-height: 480px;
         margin: auto;
         border: none;
         background: transparent;
@@ -337,6 +355,7 @@ const modalId = crypto.randomUUID();
 
     .modal-gallery:hover .gallery-button:disabled {
         opacity: 0.4;
+        cursor: unset;
     }
 
     .gallery-button:hover {
@@ -364,12 +383,21 @@ const modalId = crypto.randomUUID();
 
     .modal-text {
         width: 100%;
-        max-width: 320px;
+        max-width: 340px;
         padding: 16px;
+        font-size: 13px;
         display: flex;
         flex-direction: column;
-        gap: 8px;
+        gap: 6px;
         background-color: white;
+    }
+
+    .modal-titulo {
+        font-size: 18px;
+    }
+
+    .modal-descripcion {
+        white-space: pre-line;
     }
 
     @keyframes modalIn {

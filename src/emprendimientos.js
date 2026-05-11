@@ -11,6 +11,20 @@ export const emprendimientos = [
         "image": pijamasDass,
         "logo": pijamasDassLogo,
         "description": "Pijamas Dass es el emprendimiento de mi madre, profesional graduada del INA, dedicada a la confección, ajustes de uniformes y sublimación personalizada con acabados de alta calidad.",
+        "aditional": `
+            <p>Ofrece servicios de:</p>
+            <ul>
+                <li>
+                    Uniformes: Confección y ajustes profesionales.
+                </li>
+                <li>
+                    Sublimación Personalizada: Camisetas, tazas y cuadros de aluminio con el diseño que gusten.
+                </li>
+                <li>
+                    Regalos únicos: Ideal para fechas especiales o detalles de oficina.
+                </li>
+            </ul>
+        `,
         "category": "👗 Moda",
         "name": "Joselinne Vargas",
         "position": "Asesora Call Center",
@@ -27,7 +41,8 @@ export const emprendimientos = [
         "title": "Delicias Mi Tita",
         "image": deliciasTita,
         "logo": deliciasTitaLogo,
-        "description": "Delicias Mi Tita ofrece productos artesanales como miel, café, mermeladas, aceites saborizados, pan casero y repostería, elaborados con sabor tradicional y dedicación.",
+        "description": "Delicias Mi Tita ofrece productos artesanales elaborados con sabor tradicional y dedicación, incluyendo miel, café, mermeladas, aceites saborizados, pan casero y repostería.",
+        "aditional": `<p>Entre sus productos destacan mermeladas de piña, chiverre y guayaba, así como aceites para cocinar con ajo, jengibre y chile panameño. También elaboran pan casero y repostería variada, como cápsulas mixtas, manteniendo un enfoque casero y auténtico en cada preparación.</p>`,
         "category": "🍰 Gastronomía",
         "name": "Nicole Carrazco",
         "position": "Asesora Call Center",
@@ -50,6 +65,18 @@ export const emprendimientos = [
         "image": blossomDelicat,
         "logo": blossomDelicatLogo,
         "description": "✨ Bienvenidos a Blossom Delicat ✨\nEn Blossom Delicat no solo vendemos, también te asesoramos para que encuentres lo ideal según tu estilo y necesidades 💖",
+        "aditional": `
+            <p>
+                Te compartimos una presentación en PowerPoint, donde podrás ver más detalles sobre nuestros productos, catálogo, marcas y todo lo que ofrecemos.
+                <br/>
+                <br/>
+                Síguenos y forma parte de nuestra comunidad!
+                <br/>
+                <br/>
+                Únete a nuestro WhatsApp para promociones exclusivas:
+                <a class="emprendimiento-aditional-link" target="_blank" rel="noopener noreferer" href="https://chat.whatsapp.com/BKSlGURnT0hEckSLotHARF">Grupo de Whatsapp</a>
+            </p>
+        `,
         "category": "💅 Belleza",
         "name": "Abigail Valverde",
         "position": "Comercial",

@@ -26,7 +26,12 @@ import Hero from "./Hero.astro";
 							instagram={el.instagram}
 							linkText={el.linkText}
 							gallery={el.gallery}
-						/>
+						>
+							<div
+								class="emprendimiento-aditional"
+								set:html={el.aditional}
+							/>
+						</Emprendimiento>
 					</li>
 				))
 			}
