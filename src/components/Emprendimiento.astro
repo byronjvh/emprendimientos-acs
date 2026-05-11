@@ -262,7 +262,7 @@ const modalId = crypto.randomUUID();
     window.addEventListener("popstate", () => {
         // Si la modal está abierta, cerrarla
         if (modal?.open) {
-            closeModal(true);
+            modal.close();
         }
     });
 
@@ -297,13 +297,11 @@ const modalId = crypto.randomUUID();
         modal?.showModal();
     }
 
-    function closeModal(fromPopState = false) {
+    function closeModal() {
         modal?.close();
-        document.body.style.overflow = "";
-        document.body.style.paddingRight = "";
-        if (!fromPopState && history.state?.modal) {
-            history.back();
-        }
+        document.body.style.removeProperty("overflow");
+        document.body.style.removeProperty("padding-right");
+        history.back();
     }
     // Recorre cada galería
     galleries.forEach((gallery) => {
@@ -374,6 +372,11 @@ const modalId = crypto.randomUUID();
                 current--;
                 updateGallery();
             }
+        });
+
+        modal?.addEventListener("close", () => {
+            document.body.style.removeProperty("overflow");
+            document.body.style.removeProperty("padding-right");
         });
 
         // Inicializa estado correcto
