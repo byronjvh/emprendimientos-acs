@@ -289,7 +289,9 @@ const modalId = crypto.randomUUID();
 
         document.body.style.overflow = "hidden";
         // Agrega un estado al historial
-        history.pushState({ modal: true }, "");
+        if (!history.state?.modal) {
+            history.pushState({ modal: true }, "");
+        }
 
         // Compensa el espacio del scrollbar
         document.body.style.paddingRight = `${scrollbarWidth}px`;
@@ -371,7 +373,6 @@ const modalId = crypto.randomUUID();
         modal?.addEventListener("close", () => {
             document.body.style.removeProperty("overflow");
             document.body.style.removeProperty("padding-right");
-            history.back();
         });
 
         // Inicializa estado correcto
