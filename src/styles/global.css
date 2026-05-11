@@ -211,7 +211,6 @@ main {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    flex-shrink: 0;
 }
 
 .emprendimiento-imagen img {
@@ -227,7 +226,7 @@ main {
 .emprendimiento-contenido {
     width: 100%;
     height: 100%;
-    padding: 16px 20px;
+    padding: 16px;
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -355,10 +354,8 @@ main {
     }
 }
 
-@media screen and (min-width: 1100px) {
-    .emprendimientos-lista {
-        gap: 32px;
-    }
+@media screen and (min-width: 1200px) {
+
 
     .emprendimiento {
         flex-direction: row;
@@ -366,7 +363,8 @@ main {
     }
 
     .emprendimiento-imagen {
-        max-width: 290px;
+        max-width: 280px;
+        flex-shrink: 0;
     }
 
     .emprendimiento-descripcion {

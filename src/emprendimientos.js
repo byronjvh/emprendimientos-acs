@@ -74,7 +74,7 @@ export const emprendimientos = [
                 <br/>
                 <br/>
                 Únete a nuestro WhatsApp para promociones exclusivas:
-                <a class="emprendimiento-aditional-link" target="_blank" rel="noopener noreferer" href="https://chat.whatsapp.com/BKSlGURnT0hEckSLotHARF">Grupo de Whatsapp</a>
+                <a class="emprendimiento-aditional-link" target="_blank" rel="noopener noreferer" href="https://chat.whatsapp.com/BKSlGURnT0hEckSLotHARF">Chat de Whatsapp</a>
             </p>
         `,
         "category": "💅 Belleza",
