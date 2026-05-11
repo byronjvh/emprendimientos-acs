@@ -257,26 +257,6 @@ const modalId = crypto.randomUUID();
         closeModal();
     });
 
-    function openModal() {
-        const scrollbarWidth =
-            window.innerWidth - document.documentElement.clientWidth;
-
-        document.body.style.overflow = "hidden";
-        // Agrega un estado al historial
-        history.pushState({ modal: true }, "");
-
-        // Compensa el espacio del scrollbar
-        document.body.style.paddingRight = `${scrollbarWidth}px`;
-
-        modal?.showModal();
-    }
-
-    function closeModal() {
-        modal?.close();
-        document.body.style.overflow = "";
-        document.body.style.paddingRight = "";
-    }
-
     window.addEventListener("popstate", () => {
         // Si la modal está abierta, cerrarla
         if (modal?.open) {
@@ -301,6 +281,25 @@ const modalId = crypto.randomUUID();
     // Selecciona todas las galerías
     const galleries = document.querySelectorAll(".modal-gallery");
 
+    function openModal() {
+        const scrollbarWidth =
+            window.innerWidth - document.documentElement.clientWidth;
+
+        document.body.style.overflow = "hidden";
+        // Agrega un estado al historial
+        history.pushState({ modal: true }, "");
+
+        // Compensa el espacio del scrollbar
+        document.body.style.paddingRight = `${scrollbarWidth}px`;
+
+        modal?.showModal();
+    }
+
+    function closeModal() {
+        modal?.close();
+        document.body.style.overflow = "";
+        document.body.style.paddingRight = "";
+    }
     // Recorre cada galería
     galleries.forEach((gallery) => {
         // Obtiene imágenes y botones
