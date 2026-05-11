@@ -254,9 +254,7 @@ const modalId = crypto.randomUUID();
     });
 
     closeBtn?.addEventListener("click", () => {
-        modal?.close();
-        document.body.style.overflow = "";
-        document.body.style.paddingRight = "";
+        closeModal();
     });
 
     function openModal() {
@@ -264,12 +262,27 @@ const modalId = crypto.randomUUID();
             window.innerWidth - document.documentElement.clientWidth;
 
         document.body.style.overflow = "hidden";
+        // Agrega un estado al historial
+        history.pushState({ modal: true }, "");
 
         // Compensa el espacio del scrollbar
         document.body.style.paddingRight = `${scrollbarWidth}px`;
 
         modal?.showModal();
     }
+
+    function closeModal() {
+        modal?.close();
+        document.body.style.overflow = "";
+        document.body.style.paddingRight = "";
+    }
+
+    window.addEventListener("popstate", () => {
+        // Si la modal está abierta, cerrarla
+        if (modal?.open) {
+            closeModal();
+        }
+    });
 
     modal?.addEventListener("click", (e) => {
         const rect = modal.getBoundingClientRect();
@@ -281,9 +294,7 @@ const modalId = crypto.randomUUID();
             e.clientY <= rect.bottom;
 
         if (!inside) {
-            modal.close();
-            document.body.style.overflow = "";
-            document.body.style.paddingRight = "";
+            closeModal();
         }
     });
 
