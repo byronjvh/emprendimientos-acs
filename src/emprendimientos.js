@@ -4,6 +4,8 @@ import deliciasTita from "./assets/delicias-mi-tita/Delicias_mi_tita.jpeg";
 import deliciasTitaLogo from "./assets/delicias-mi-tita/delicias-mi-tita-logo.webp";
 import blossomDelicat from "./assets/blossom-delicat/blossom-delicat.png";
 import blossomDelicatLogo from "./assets/blossom-delicat/blossom-delicat-logo.png";
+import trendingStore from "./assets/trending-store/trending-store.webp"
+import trendingStoreLogo from "./assets/trending-store/trending-store-logo.webp"
 
 export const emprendimientos = [
     {
@@ -96,6 +98,32 @@ export const emprendimientos = [
             "/gallery/blossom-delicat/8.webp",
             "/gallery/blossom-delicat/9.webp",
             "/gallery/blossom-delicat/10.webp",
+        ]
+    },
+    {
+        "title": "Trending Store",
+        "image": trendingStore,
+        "logo": trendingStoreLogo,
+        "description": "Trending Store ofrece perfumería original de diseñador, nicho y árabe, además de ropa, calzado, bolsos, gorras y joyería laminada para hombres y mujeres.",
+        "aditional": `
+            <p>
+                También cuenta con cremas corporales y body splash de marcas reconocidas, así como accesorios y artículos de moda pensados tanto para hombres como para mujeres, combinando variedad, estilo y productos originales.
+            </p>
+        `,
+        "category": "👟 Moda",
+        "name": "Kevin Meoño Obando",
+        "position": "Tukomer CRTECH",
+        "whatsapp": "",
+        "facebook": "",
+        "instagram": "https://www.instagram.com/trending.storee_?igsh=ZXl4Z2M2YW13am1u&utm_source=qr",
+        "website": "",
+        "linkText": "Ver página",
+        "gallery": [
+            "/gallery/trending-store/1.webp",
+            "/gallery/trending-store/2.webp",
+            "/gallery/trending-store/3.webp",
+            "/gallery/trending-store/4.webp",
+            "/gallery/trending-store/5.webp"
         ]
     }
 ]
