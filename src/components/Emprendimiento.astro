@@ -312,6 +312,30 @@ const modalId = crypto.randomUUID();
         const modalCounter = gallery.querySelector(".modalCounter");
         // Índice de imagen actual
         let current = 0;
+        let startX = 0;
+        let endX = 0;
+
+        gallery.addEventListener("touchstart", (e) => {
+            startX = e.changedTouches[0].screenX;
+        });
+
+        gallery.addEventListener("touchend", (e) => {
+            endX = e.changedTouches[0].screenX;
+
+            const diff = startX - endX;
+
+            // Swipe izquierda
+            if (diff > 50 && current < images.length - 1) {
+                current++;
+                updateGallery();
+            }
+
+            // Swipe derecha
+            if (diff < -50 && current > 0) {
+                current--;
+                updateGallery();
+            }
+        });
 
         // Función para actualizar galería
         function updateGallery() {
@@ -441,7 +465,7 @@ const modalId = crypto.randomUUID();
         padding: 6px 2px;
         border-radius: 4px;
         overflow: hidden;
-        opacity: 0;
+        opacity: 1;
         transition:
             opacity 0.2s ease-out,
             background-color 0.2s ease-out;
@@ -458,6 +482,10 @@ const modalId = crypto.randomUUID();
     .modal-gallery:hover .gallery-button:disabled {
         opacity: 0.4;
         cursor: unset;
+    }
+
+    .gallery-button:disabled {
+        opacity: 0.4;
     }
 
     .gallery-button:hover {
@@ -541,6 +569,14 @@ const modalId = crypto.randomUUID();
             max-height: unset;
             min-height: unset;
             height: auto;
+        }
+
+        .gallery-button {
+            opacity: 0;
+        }
+
+        .gallery-button:disabled {
+            opacity: 0;
         }
     }
 </style>
