@@ -250,7 +250,6 @@ const modalId = crypto.randomUUID();
     const card = document.querySelector(`[data-modal="${modalId}"]`);
     const modal = document.getElementById(modalId);
     const closeBtn = modal?.querySelector("[data-close]");
-    let scrollY = 0;
 
     card?.addEventListener("click", () => {
         openModal();
@@ -285,7 +284,6 @@ const modalId = crypto.randomUUID();
     const galleries = document.querySelectorAll(".modal-gallery");
 
     function openModal() {
-        scrollY = window.scrollY;
         const scrollbarWidth =
             window.innerWidth - document.documentElement.clientWidth;
 
@@ -374,7 +372,6 @@ const modalId = crypto.randomUUID();
             document.body.style.removeProperty("overflow");
             document.body.style.removeProperty("padding-right");
             history.back();
-            window.scrollTo(0, scrollY);
         });
 
         // Inicializa estado correcto
