@@ -13,6 +13,7 @@ const emprendimiento = {
     logo: mobyDuckLogo,
     description:
         "PATOS DE GOMA Y DUCKY BIKES, PATITOS PARA LA TINA, PATITOS PARA LA MOTO, PATITOS PARA LA VIDA",
+    aditional: "",
     category: "🐤 Patos",
     name: "JUAN PIÑA",
     position: "Depto. TI",
@@ -53,7 +54,12 @@ const emprendimiento = {
                     instagram={emprendimiento.instagram}
                     linkText={emprendimiento.linkText}
                     gallery={emprendimiento.gallery}
-                />
+                >
+                    <div
+                        class="emprendimiento-aditional"
+                        set:html={emprendimiento.aditional}
+                    />
+                </Emprendimiento>
             </li>
         </ul>
     </main>

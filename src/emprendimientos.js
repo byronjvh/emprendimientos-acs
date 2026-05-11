@@ -80,7 +80,7 @@ export const emprendimientos = [
         "category": "💅 Belleza",
         "name": "Abigail Valverde",
         "position": "Comercial",
-        "whatsapp": "https://chat.whatsapp.com/BKSlGURnT0hEckSLotHARF",
+        "whatsapp": "https://wa.me/50670208187",
         "facebook": "https://www.facebook.com/share/1Cs3gRC3cH/",
         "instagram": "https://www.instagram.com/blossom_delicat",
         "website": "",

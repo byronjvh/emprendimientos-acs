@@ -128,7 +128,7 @@ const modalId = crypto.randomUUID();
 <dialog id={modalId} class="modal">
     <div class="modal-content">
         <div class="modal-gallery">
-            <div></div>
+            <span class="modalCounter" id="modalCounter"></span>
             {
                 gallery?.map((src: string, i: number) => (
                     <img
@@ -168,6 +168,78 @@ const modalId = crypto.randomUUID();
             <h4 class="modal-titulo">{title}</h4>
             <p class="modal-descripcion">{description}</p>
             <slot />
+            <footer>
+                <div class="emprendimiento-enlaces">
+                    {
+                        whatsapp && (
+                            <a
+                                target="_blank"
+                                rel="noopenner noreferer"
+                                onclick="event.stopPropagation()"
+                                href={whatsapp}
+                            >
+                                <>
+                                    <i class="fa-brands fa-whatsapp" />
+                                    <span style="font-size: 12px;">
+                                        {linkText ?? ""}
+                                    </span>
+                                </>
+                            </a>
+                        )
+                    }
+                    {
+                        facebook && (
+                            <a
+                                target="_blank"
+                                rel="noopenner noreferer"
+                                href={facebook}
+                                onclick="event.stopPropagation()"
+                            >
+                                <>
+                                    <i class="fa-brands fa-facebook" />
+                                    <span style="font-size: 12px;">
+                                        {linkText ?? ""}
+                                    </span>
+                                </>
+                            </a>
+                        )
+                    }
+                    {
+                        website && (
+                            <a
+                                target="_blank"
+                                rel="noopenner noreferer"
+                                href={website}
+                                onclick="event.stopPropagation()"
+                            >
+                                <>
+                                    <i class="fa-solid fa-globe" />
+                                    <span style="font-size: 12px;">
+                                        {linkText ?? ""}
+                                    </span>
+                                </>
+                            </a>
+                        )
+                    }
+                    {
+                        instagram && (
+                            <a
+                                target="_blank"
+                                rel="noopenner noreferer"
+                                href={instagram}
+                                onclick="event.stopPropagation()"
+                            >
+                                <>
+                                    <i class="fa-brands fa-instagram" />
+                                    <span style="font-size: 12px;">
+                                        {linkText ?? ""}
+                                    </span>
+                                </>
+                            </a>
+                        )
+                    }
+                </div>
+            </footer>
         </div>
     </div>
 </dialog>
@@ -225,7 +297,7 @@ const modalId = crypto.randomUUID();
 
         const prevBtn = gallery.querySelector(".prev");
         const nextBtn = gallery.querySelector(".next");
-
+        const modalCounter = gallery.querySelector(".modalCounter");
         // Índice de imagen actual
         let current = 0;
 
@@ -244,6 +316,7 @@ const modalId = crypto.randomUUID();
 
             // Deshabilita botón "siguiente" si está en la última imagen
             nextBtn.disabled = current === images.length - 1;
+            modalCounter.innerHTML = `${current + 1}/${images.length}`;
         }
 
         // Botón siguiente
@@ -279,6 +352,21 @@ const modalId = crypto.randomUUID();
         border: none;
         background: transparent;
         padding: 8px;
+    }
+
+    .modalCounter {
+        position: absolute;
+        right: 8px;
+        bottom: 8px;
+        color: white;
+        font-size: 11px;
+        background-color: rgba(0, 0, 0, 0.5);
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .modal:focus {
